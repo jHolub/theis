@@ -10,21 +10,19 @@ body{
 }
 
 #panel{
-    width: 20%;
+    width: 30%;
     height: 100%;
     float: right;
-    padding: 15px;
-}
-
-#title{    
-    width: 100%;
-    background-color: #337ab7; 
-    color: white;
-    margin: 0px;
-    padding: 0px;    
+    padding: 10px;
 }
 
 #graph{
-    width: 80%;
-    height: 500px;    
+   width: 70%;
+   height: 450px;
+   padding: 10px;    
+}
+
+#wrap{
+padding-left: 10px;
+padding-right: 10px;
 }

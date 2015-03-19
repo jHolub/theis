@@ -35,12 +35,16 @@ function well_fce(u) {
 
 function TheisDrawDown() {
 
-    r = 100;
+    r = parseFloat($("#Radius").val());
     S = $("#Storativity").val();
     T = $("#Transmissivity").val(); // m2/min
     Q = $("#Recharge").val();  // m3/min
-
-    t = new Array(60, 300, 600, 3000, 6000, 30000, 60000, 300000, 600000, 3000000);
+    
+    t = new Array(
+            parseInt($("#timeSolv").val())*60,
+            parseInt($("#timeSolv").val())*600,
+            parseInt($("#timeSolv").val())*6000
+                    );
 
     $("#resultTabBody").empty();
 
