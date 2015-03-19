@@ -1,0 +1,30 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;    
+}
+#map{
+    width: 80%;
+    height: 100%;
+}
+
+#panel{
+    width: 20%;
+    height: 100%;
+    float: right;
+    padding: 15px;
+}
+
+#title{    
+    width: 100%;
+    background-color: #337ab7; 
+    color: white;
+    margin: 0px;
+    padding: 0px;    
+}
+
+#graph{
+    width: 80%;
+    height: 500px;    
+}
