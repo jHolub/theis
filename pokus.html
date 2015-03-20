@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>    
+    <head>        
+        <title>THEIS SOLUTION
+        </title>        
+        <meta charset="UTF-8">        
+        <meta name="description" content="Theis solution, Pumping test, Aquifer test">        
+        <link rel="stylesheet" href="./css/bootstrap3_3_2/css/bootstrap.min.css">        
+        <link rel="stylesheet" href="./css/style.css" type="text/javascript">        
+        <link rel="stylesheet" type="text/css" href="./js/jqplot/jquery.jqplot.min.css" />                 
+        <script src="./js/jquery/jquery-1.11.1.min.js"></script>         
+        <script type="text/javascript" src="./js/jqplot/jquery.jqplot.min.js"></script>         
+        <script type="text/javascript" src="./js/jqplot/plugins/jqplot.dateAxisRenderer.min.js"></script>         
+        <script type="text/javascript" src="./js/jqplot/plugins/jqplot.logAxisRenderer.min.js"></script>         
+        <script type="text/javascript" src="./js/jqplot/plugins/jqplot.canvasTextRenderer.min.js"></script>         
+        <script type="text/javascript" src="./js/jqplot/plugins/jqplot.canvasAxisTickRenderer.min.js"></script>         
+        <script type="text/javascript" src="./js/jqplot/plugins/jqplot.ohlcRenderer.min.js"></script>         
+        <script type="text/javascript" src="./js/jqplot/plugins/jqplot.cursor.min.js"></script>         
+        <script type="text/javascript" src="./js/jqplot/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>         
+        <script type="text/javascript" src="./js/jqplot/plugins/jqplot.categoryAxisRenderer.min.js"></script>         
+        <script type="text/javascript" src="./js/jqplot/plugins/jqplot.highlighter.min.js"></script>         
+        <script src="./js/fc.js"></script>         
+        <script src="./js/ploting.js"></script>     
+    </head>    
+    <body>           
+        <nav class="navbar navbar-default">  
+            <div class="container-fluid">    
+                <div class="navbar-header">                        
+                    <a class="navbar-brand" href="./index.html">RADFLOW - Pumping test</a>    
+                </div>    
+                <div>      
+                    <ul class="nav navbar-nav">        
+                        <li class="active">
+                            <a href="./index.html">Theis solution</a>
+                        </li>        
+                        <li>
+                            <a href="./description.html">Description</a>
+                        </li>      
+                    </ul>    
+                </div>  
+            </div>
+        </nav>  
+
+        <div id="wrap">   
+
+            <div id="panel">                  
+                <div class="form-horizontal">                
+
+                    <!-- Text input-->                    
+                    <div class="control-group">                        
+                        <label class="control-label" for="Recharge">Recharge [m<sup>3</sup>/s]
+                        </label>                        
+                        <div class="controls">                            
+                            <input class="form-control" id="Recharge" name="textinput" type="number" placeholder="" value="0.208">                        
+                        </div>                    
+                    </div>                    
+                    <!-- Text input-->                    
+                    <div class="control-group">                        
+                        <label class="control-label" for="Transmissivityt">Transmissivity [m<sup>2</sup>/s]
+                        </label>                        
+                        <div class="controls">                            
+                            <input class="form-control" id="Transmissivity" name="textinput" type="number" placeholder="" value="0.074274">                        
+                        </div>                    
+                    </div>                    
+                    <!-- Text input-->                    
+                    <div class="control-group">                        
+                        <label class="control-label" for="Storativity">Storativity []
+                        </label>                        
+                        <div class="controls">                            
+                            <input class="form-control" id="Storativity" name="textinput" type="number" placeholder="" value="0.006149">                        
+                        </div>                    
+                    </div>  
+
+                    <div class="control-group">                        
+                        <label class="control-label" for="Radius">Radius [m]
+                        </label>                        
+                        <div class="controls">                            
+                            <input class="form-control" id="Radius" name="textinput" type="number" placeholder="" value="1.0" min="0.1" max="1000">                        
+                        </div>                    
+                    </div>    
+
+                    <div class="control-group">                        
+                        <label class="control-label" for="time">time [min]
+                        </label>                        
+                        <div class="controls">                            
+                            <input class="form-control" id="time" name="textinput" type="number" placeholder="" value="5.0">                        
+                        </div>                    
+                    </div>                         
+                    <br>
+                    <div class="form-inline"> 
+                        <button id="solve" name="singlebutton" class="btn btn-primary">Solve
+                        </button> 
+                        <button id="redraw" name="singlebutton" class="btn btn-default">REDRAW
+                        </button> 
+                    </div> 
+
+                </div>            
+                <div class="form-horizontal">                
+
+                    <table id="resultTab" class="table table-striped">                        
+                        <thead>                            
+                            <tr>                                
+                                <th>Time [min]
+                                </th>                                
+                                <th>Drawdown [m]
+                                </th>                            
+                            </tr>                        
+                        </thead>                        
+                        <tbody id="resultTabBody">                        
+                        </tbody>                    
+                    </table>                
+
+                </div>                                               
+            </div>    
+
+
+            <div id="graph">    
+            </div>
+
+            <div class="form-inline">            
+                <label class="control-label" for="step">step [min]
+                </label>            
+                <input id="step" class="form-control" name="textinput" type="number" placeholder=""  value="5">            
+                <label class="control-label" for="end">end [min]
+                </label>            
+                <input id="end" class="form-control" name="textinput" type="number" placeholder=""  value="120">            
+                <button id="animation" name="singlebutton" class="btn btn-default">ANIMATION
+                </button>               
+                <button id="animationStop" name="singlebutton" class="btn btn-default">STOP
+                </button>        
+            </div> 
+        </div>    
+
+        <script>
+            //NAMESPACE
+            window.Theis = window.Theis || {};
+            Theis.init = function() {
+                return function() {
+                    Theis.map = new ol.Map({
+                        target: 'map',
+                        controls: ol.control.defaults().extend([new ol.control.ScaleLine({units: 'metric'})]),
+                        view: new ol.View({
+                            center: [-244780.24508882355, 5986452.183179816],
+                            zoom: 8,
+                            minZoom: 8
+                        })
+                    });
+                    Theis.map.addLayer(new ol.layer.Tile({
+                        source: new ol.source.OSM()
+                    }));
+                    Theis.vector = new ol.layer.Vector({
+                        source: new ol.source.Vector()
+                    });
+                    Theis.map.addLayer(Theis.vector);
+                    Theis.featureOverlay = new ol.FeatureOverlay({
+                        style: new ol.style.Style({
+                            fill: new ol.style.Fill({
+                                color: 'rgba(255, 255, 255, 0.2)'
+                            }),
+                            stroke: new ol.style.Stroke({
+                                color: '#ffcc33',
+                                width: 2
+                            }),
+                            image: new ol.style.Circle({
+                                radius: 7,
+                                fill: new ol.style.Fill({
+                                    color: '#ffcc33'
+                                })
+                            })
+                        })
+                    });
+                    Theis.featureOverlay.setMap(Theis.map);
+                    Theis.control = new ol.interaction.Draw({
+                        features: Theis.featureOverlay.getFeatures(),
+                        type: "Point"
+                    });
+                    Theis.control.on('drawend', function(e) {
+                        Theis.control.setActive(false);
+                    });
+                    Theis.control.setActive(false);
+                    Theis.map.addInteraction(this.control);
+                }
+            }();
+            //Theis.init();
+            $("#setWell").click(function() {
+                Theis.featureOverlay.getFeatures().clear();
+                Theis.control.setActive(true);
+            });
+            $("#solve").click(function() {
+                TheisDrawDown();
+            });
+            $("#redraw").click(function() {
+                drawPlot();
+            });
+
+            $("#animation").click(function() {
+                animation();
+            });
+
+            $("#animationStop").click(function() {
+                $("#time").val($("#end").val())
+            });
+            drawPlot();
+        </script>            
+        <script src="./css/bootstrap3_3_2/js/bootstrap.min.js"></script>     
+    </body>
+</html>

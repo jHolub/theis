@@ -1,28 +1,9 @@
 body{
     margin: 0px;
-    padding: 0px;
-    width: 100%;
-    height: 100%;    
+    padding: 0px;    
 }
-#map{
-    width: 80%;
-    height: 100%;
-}
-
-#panel{
-    width: 30%;
-    height: 100%;
-    float: right;
-    padding: 10px;
-}
-
 #graph{
-   width: 70%;
-   height: 450px;
-   padding: 10px;    
+   width: 100%;
+   height: 450px; 
 }
 
-#wrap{
-padding-left: 10px;
-padding-right: 10px;
-}
