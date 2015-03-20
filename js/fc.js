@@ -41,9 +41,9 @@ function TheisDrawDown() {
     Q = $("#Recharge").val();  // m3/min
     
     t = new Array(
-            parseInt($("#timeSolv").val())*60,
-            parseInt($("#timeSolv").val())*600,
-            parseInt($("#timeSolv").val())*6000
+            parseInt($("#time").val())*60,
+            parseInt($("#time").val())*600,
+            parseInt($("#time").val())*6000
                     );
 
     $("#resultTabBody").empty();
@@ -77,7 +77,7 @@ function drawPlot() {
     t = $("#time").val() * 60;
     stopSolving = false;
 
-    for (r = -1; r > -1001; r--) {
+    for (r = -1; r > -1001; r = r - 5) {
         if (stopSolving == false) {
             s = TheisFce(t, r) * (-1);
             data[i] = [r, s];
@@ -92,7 +92,7 @@ function drawPlot() {
     }
 
     stopSolving = false;
-    for (r = 1; r < 1001; r++) {
+    for (r = 1; r < 1001; r = r + 5) {
         if (stopSolving == false) {
             s = TheisFce(t, r) * (-1);
             data[i] = [r, s];
@@ -119,7 +119,7 @@ function animation() {
             if(parseInt($("#time").val()) + step < end) {
                 animation();    
             };
-        }, 200);
+        }, 70);
         
     
 }

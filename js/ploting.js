@@ -14,6 +14,7 @@ function ploting(data, id) {
             shadow: false
         },
         seriesDefaults: {
+            fill: true,
             markerOptions: {
                 size: 7,
                 shadow: false
@@ -22,7 +23,7 @@ function ploting(data, id) {
         },
         highlighter: {
             sizeAdjust: 10,
-            tooltipLocation: 'n',
+            tooltipLocation: 'ne',
             tooltipAxes: 'y',
             useAxesFormatters: false,
             showTooltip: true,
@@ -30,26 +31,26 @@ function ploting(data, id) {
         },
         cursor: {
             show: true,
-            tooltipLocation: 'se',
+            tooltipLocation: 'ne',
             zoom: false,
             dblClickReset: true,
             showVerticalLine: true,
             showHorizontalLine: true,
-            fontSize: '13px'
+            fontSize: '14px'
         },
         legend: {
-            show: true,
-            location: 'en'
+            show: false,
+            location: 'ne'
         },
         series: [
-            {label: 'Pumping test', isDragable: false, color: "black", lineWidth: 2, markerOptions: {size: 2, shadow: false}, shadow: false},
+            {label: 'Pumping test', isDragable: false, color: "rgba(0,0,255,0.3)", lineWidth: 1, markerOptions: {size: 2, shadow: false}, shadow: false},
         ],
         axes: {
             xaxis: {
                 label: "r [m]",
                 max: 1100,
                 min: -1100,
-                //ticks: [0.01,0.1,1, 10, 100, 500, 1000, 5000, 10000, 50000, 100000, 500000, 1000000, 5000000, 10000000, 50000000, 100000000, 500000000, 1000000000],
+                ticks: [-1000, -800, -600, -400, -200, 0, 200, 400, 600, 800, 1000],
                 tickOptions: {
                  //   formatString: '%.1e'                           //http://perldoc.perl.org/functions/sprintf.html                      
                 },
