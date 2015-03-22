@@ -1,9 +1,33 @@
+html, body {
+    height: 100%;
+}
 body{
     margin: 0px;
     padding: 0px;    
 }
 #graph{
-   width: 100%;
-   height: 450px; 
+    width: 100%;
+    height: 450px; 
 }
 
+#wrap
+{
+min-height: 100%;
+}
+
+#main
+{
+overflow:auto;
+padding-bottom:50px; /* this needs to be bigger than footer height*/
+}
+
+.footer
+{
+position: relative;
+margin-top: -50px; /* negative value of footer height */
+height: 50px;
+clear:both;
+padding-top:20px;
+border-color: #e7e7e7;
+text-align: center;
+}

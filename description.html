@@ -6,6 +6,8 @@
         <meta name="description" content="Theis solution, Pumping test, Aquifer test">
 
         <link rel="stylesheet" href="./css/bootstrap3_3_2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/style.css" type="text/css">    
+
         <link rel="stylesheet" href="./css/style.css" type="text/javascript">
         <link rel="stylesheet" type="text/css" href="./js/jqplot/jquery.jqplot.min.css" />        
 
@@ -14,64 +16,71 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">                 
-                    <a class="navbar-brand" href="./index.html">RADFLOW - Pumping test</a>
+
+        <div id="wrap">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">                 
+                        <a class="navbar-brand" href="./index.html">RADFLOW - Pumping test</a>
+                    </div>
+                    <div>
+                        <ul class="nav navbar-nav">
+                            <li><a href="./index.html">Theis solution</a></li>
+                            <li class="active"><a href="./description.html">Description</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div>
-                    <ul class="nav navbar-nav">
-                        <li><a href="./index.html">Theis solution</a></li>
-                        <li class="active"><a href="./description.html">Description</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+            </nav>
 
-        <div class="container">
-            The Theis (1935) solution (or Theis nonequilibrium method) is useful for determining the hydraulic properties 
-            (transmissivity and storativity) of nonleaky confined aquifers. Analysis involves matching the Theis 
-            type curve for nonleaky confined aquifers to nonequilibrium (i.e., transient) drawdown data collected 
-            during a pumping test (aquifer test or aquifer performance test).
+            <div id="main" class="container clear-top">
+                The Theis (1935) solution (or Theis nonequilibrium method) is useful for determining the hydraulic properties 
+                (transmissivity and storativity) of nonleaky confined aquifers. Analysis involves matching the Theis 
+                type curve for nonleaky confined aquifers to nonequilibrium (i.e., transient) drawdown data collected 
+                during a pumping test (aquifer test or aquifer performance test).
 
-            Charles Vernon Theis was the first to develop a rigorous mathematical model of transient flow of water to 
-            a pumping well by recognizing the physical analogy between heat flow in solids and groundwater flow in 
-            porous media. 
-            
-            <h4>The Theis solution is based on the following assumptions:</h4>    
-            
-            <ul>
-                <li>The flow in the aquifer is adequately described by Darcy's law (i.e. Re&lt;10).</li>
-                <li>homogeneous, isotropic, confined aquifer,</li>
-                <li>well is fully penetrating (open to the entire thickness (<i>b</i>) of aquifer),</li>
-                <li>the well has zero radius (it is approximated as a vertical line) — therefore no water can be stored in the well,</li>
-                <li>the well has a constant pumping rate Q,</li>
-                <li>the head loss over the well screen is negligible,</li>
-                <li>aquifer is infinite in radial extent,</li>
-                <li>horizontal (not sloping), flat, impermeable (non-leaky) top and bottom boundaries of aquifer,</li>
-                <li>groundwater flow is horizontal</li>
-                <li>no other wells or long term changes in regional water levels (all changes in potentiometric surface are the result of the pumping well alone)</li>
-            </ul>         
-            The Theis type curve method, used for determining the hydraulic properties of aquifers, 
-            is based on the following mathematical equation (i.e., the Theis equation) for flow to a fully penetrating 
-            line sink discharging at a constant rate in a homogeneous, isotropic and nonleaky confined aquifer of infinite extent:
-            <br>
-            <img src="./images/equation.png">
-            <br><br>
-            where W() is the well-khown well function, Q is the discharge (pumping) rate of the well, T and S are transmissivity and storativity of aquifer, r is the distance level between well and observation point and t is the time since pumping start.
+                Charles Vernon Theis was the first to develop a rigorous mathematical model of transient flow of water to 
+                a pumping well by recognizing the physical analogy between heat flow in solids and groundwater flow in 
+                porous media. 
 
-            
+                <h4>The Theis solution is based on the following assumptions:</h4>    
+
+                <ul>
+                    <li>The flow in the aquifer is adequately described by Darcy's law (i.e. Re&lt;10).</li>
+                    <li>homogeneous, isotropic, confined aquifer,</li>
+                    <li>well is fully penetrating (open to the entire thickness (<i>b</i>) of aquifer),</li>
+                    <li>the well has zero radius (it is approximated as a vertical line) — therefore no water can be stored in the well,</li>
+                    <li>the well has a constant pumping rate Q,</li>
+                    <li>the head loss over the well screen is negligible,</li>
+                    <li>aquifer is infinite in radial extent,</li>
+                    <li>horizontal (not sloping), flat, impermeable (non-leaky) top and bottom boundaries of aquifer,</li>
+                    <li>groundwater flow is horizontal</li>
+                    <li>no other wells or long term changes in regional water levels (all changes in potentiometric surface are the result of the pumping well alone)</li>
+                </ul>         
+                The Theis type curve method, used for determining the hydraulic properties of aquifers, 
+                is based on the following mathematical equation (i.e., the Theis equation) for flow to a fully penetrating 
+                line sink discharging at a constant rate in a homogeneous, isotropic and nonleaky confined aquifer of infinite extent:
+                <br>
+                <img src="./images/equation.png">
+                <br><br>
+                where W() is the well-khown well function, Q is the discharge (pumping) rate of the well, T and S are transmissivity and storativity of aquifer, r is the distance level between well and observation point and t is the time since pumping start.
+
+
                 <br><br>
                 <h4>References</h4>
-                
+
                 <div><cite>Theis, C.V., 1935. The relation between the lowering of the piezometric surface and the rate and duration of discharge of a well using groundwater storage, Am. Geophys. Union Trans., vol. 16, pp. 519-524.</cite></div>
                 <div><cite>Wikipedia, Aquifer test, 2015. [online]. <a href="http://en.wikipedia.org/wiki/Aquifer_test" target="_blank">http://en.wikipedia.org/wiki/Aquifer_test</a></cite></div>
                 <div><cite>AQTESOLV, Theis Solution for Nonleaky Confined Aquifers, 2015. [online]. <a href="http://www.aqtesolv.com/theis.htm" target="_blank">http://www.aqtesolv.com/theis.htm</a></cite></div>
+            </div>
         </div>
         
-        <br><br>
+        <footer class="footer">
+            <p> RadFlow, Copyright (c) <span id="year"></span></p>
+        </footer>s
 
         <script src="./css/bootstrap3_3_2/js/bootstrap.min.js"></script>
-
+        <script>
+             document.getElementById('year').innerHTML = new Date().getFullYear();
+        </script>
     </body>
 </html>

@@ -37,9 +37,9 @@ function TheisDrawDown() {
 
     r = parseFloat($("#Radius").val());
     S = $("#Storativity").val();
-    T = $("#Transmissivity").val(); // m2/min
-    Q = $("#Recharge").val();  // m3/min
-    
+    T = $("#Transmissivity").val(); 
+    Q = $("#Recharge").val();  
+// time [s]    
     t = new Array(
             parseInt($("#time").val())*60,
             parseInt($("#time").val())*600,
@@ -61,8 +61,8 @@ function TheisDrawDown() {
 function TheisFce(t, r) {
 
     S = $("#Storativity").val();
-    T = $("#Transmissivity").val(); // m2/min
-    Q = $("#Recharge").val();  // m3/min
+    T = $("#Transmissivity").val(); 
+    Q = $("#Recharge").val();  
 
     u = ((r * r) * S) / (4 * T * t);
 
@@ -77,7 +77,7 @@ function drawPlot() {
     t = $("#time").val() * 60;
     stopSolving = false;
 
-    for (r = -1; r > -1001; r = r - 5) {
+    for (r = -1; r > -401; r = r - 3) {
         if (stopSolving == false) {
             s = TheisFce(t, r) * (-1);
             data[i] = [r, s];
@@ -92,7 +92,7 @@ function drawPlot() {
     }
 
     stopSolving = false;
-    for (r = 1; r < 1001; r = r + 5) {
+    for (r = 1; r < 401; r = r + 3) {
         if (stopSolving == false) {
             s = TheisFce(t, r) * (-1);
             data[i] = [r, s];

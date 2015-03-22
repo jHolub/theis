@@ -38,19 +38,15 @@ function ploting(data, id) {
             showHorizontalLine: true,
             fontSize: '14px'
         },
-        legend: {
-            show: false,
-            location: 'ne'
-        },
         series: [
             {label: 'Pumping test', isDragable: false, color: "rgba(0,0,255,0.3)", lineWidth: 1, markerOptions: {size: 2, shadow: false}, shadow: false},
         ],
         axes: {
             xaxis: {
                 label: "r [m]",
-                max: 1100,
-                min: -1100,
-                ticks: [-1000, -800, -600, -400, -200, 0, 200, 400, 600, 800, 1000],
+                max: 400,
+                min: -400,
+                ticks: [-300,-200,-100, -50, -25, 0,25, 50, 100,200,300],
                 tickOptions: {
                  //   formatString: '%.1e'                           //http://perldoc.perl.org/functions/sprintf.html                      
                 },
