@@ -3,7 +3,8 @@
     <head>
         <title>THEIS SOLUTION</title>
         <meta charset="UTF-8">
-        <meta name="description" content="Theis solution, Pumping test, Aquifer test">
+        <meta name="description" content="Online solution of unsteady groundwater flow. The application is based on the Theis model. Keywords: Theis solution, Pumping test, Aquifer test">        
+        <meta name="author" content="J.Holub, Czech University of Life Sciences Prague" />
 
         <link rel="stylesheet" href="./css/bootstrap3_3_2/css/bootstrap.min.css">
         <link rel="stylesheet" href="./css/style.css" type="text/css">    
@@ -73,14 +74,24 @@
                 <div><cite>AQTESOLV, Theis Solution for Nonleaky Confined Aquifers, 2015. [online]. <a href="http://www.aqtesolv.com/theis.htm" target="_blank">http://www.aqtesolv.com/theis.htm</a></cite></div>
             </div>
         </div>
-        
+
         <footer class="footer">
-            <p> RadFlow, Copyright (c) <span id="year"></span></p>
-        </footer>s
+            <p>Copyright (c) <span id="year"></span> - RadFlow, <span id="contact"></span></p>
+        </footer>
 
         <script src="./css/bootstrap3_3_2/js/bootstrap.min.js"></script>
         <script>
-             document.getElementById('year').innerHTML = new Date().getFullYear();
+            document.getElementById('year').innerHTML = new Date().getFullYear();
+
+            function gen_mail_to_link(lhs, rhs, subject)
+            {
+                cont = "<A HREF=\"mailto";
+                cont = cont + ":" + lhs + "@";
+                cont = cont + rhs + "?subject=" + subject + "\"> contact me<\/A>";
+                document.getElementById('contact').innerHTML = cont;
+            }
+
+            gen_mail_to_link('jiri.holubcz', 'seznam.cz', 'Feedback about your site...')
         </script>
     </body>
 </html>

@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="./css/bootstrap3_3_2/css/bootstrap.min.css">        
         <link rel="stylesheet" href="./css/style.css" type="text/css">        
         <link rel="stylesheet" type="text/css" href="./js/jqplot/jquery.jqplot.min.css" />  
-        
+
         <script src="./js/jquery/jquery-1.11.1.min.js"></script>         
         <script type="text/javascript" src="./js/jqplot/jquery.jqplot.min.js"></script>         
         <script type="text/javascript" src="./js/jqplot/plugins/jqplot.dateAxisRenderer.min.js"></script>         
@@ -144,13 +144,25 @@
         </div>
 
         <footer class="footer">
-           <p> RadFlow, Copyright (c) <span id="year"></span></p>
+            <p>Copyright (c) <span id="year"></span> - RadFlow, <span id="contact"></span></p>
         </footer>
 
         <script>
-            
+
             document.getElementById('year').innerHTML = new Date().getFullYear();
-            
+
+
+            function gen_mail_to_link(lhs, rhs, subject)
+            {
+                cont = "<A HREF=\"mailto";
+                cont = cont + ":" + lhs + "@";
+                cont = cont + rhs + "?subject=" + subject + "\"> contact me<\/A>";
+                document.getElementById('contact').innerHTML = cont;
+            }
+
+            gen_mail_to_link('jiri.holubcz', 'seznam.cz', 'Feedback about your site...')
+
+
             $("#solve").click(function() {
                 TheisDrawDown();
             });
@@ -170,6 +182,23 @@
 
         <script src="./css/bootstrap3_3_2/js/bootstrap.min.js"></script> 
 
+        <script>
+                    (function(i, s, o, g, r, a, m) {
+                        i['GoogleAnalyticsObject'] = r;
+                        i[r] = i[r] || function() {
+                            (i[r].q = i[r].q || []).push(arguments)
+                        }, i[r].l = 1 * new Date();
+                        a = s.createElement(o),
+                                m = s.getElementsByTagName(o)[0];
+                        a.async = 1;
+                        a.src = g;
+                        m.parentNode.insertBefore(a, m)
+                    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+                    ga('create', 'UA-61028731-1', 'auto');
+                    ga('send', 'pageview');
+
+        </script>
 
     </body>
 </html>
